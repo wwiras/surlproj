@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Long URL</th>
+                <th>Short URL</th>
+                <th>Description</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in myurl %}
+            <tr>
+              <td><a href="{{ c.longurl }}">{{ c.longurl }}</a></td> 
+              <td><a href="{{ c.shorturl }}">{{ c.shorturl }}</a></td> 
+              <td>{{ c.desc }}</td> 
+            </tr>
+            {% endfor %}
+        </tbody> 
+    </table>
+
+    <a href="{% url 'myurl_create' %}" class="btn btn-primary" >Create URL</a>
+
+
+    {% endblock %}
